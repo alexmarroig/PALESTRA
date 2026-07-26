@@ -8,7 +8,7 @@ E ele dizia:
 {!SILÊNCIO 2s}
 Ao redor dele, aquilo era entendido como falta de disciplina, preguiça ou irresponsabilidade.
 {PARAR | FIRME — a força vem da precisão, não do volume}
-Mas essas palavras **julgavam** o comportamento; {MICROPAUSA} não explicavam o caso.
+Mas essas palavras **julgavam** o comportamento; não explicavam o caso.
 {PAUSA 1s}
 {*TOM PROFISSIONAL}
 Hoje, o uso problemático de redes sociais ainda não possui uma categoria diagnóstica própria no DSM-5-TR nem na CID-11.
@@ -45,7 +45,7 @@ O álcool não era apenas o problema apresentado. Naquela situação, também ha
 {PAUSA 1s}
 Com isso, chegamos à terceira pergunta:
 {!FIRME E SÉRIA}
-**Quais prejuízos esse comportamento está produzindo?**
+**Quais custos esse comportamento está produzindo?**
 O que está acontecendo com o sono, o trabalho, os estudos, os vínculos, a saúde e a segurança? Existe intoxicação, abstinência ou risco imediato?
 Compreender a função nunca significa minimizar os prejuízos.
 {!PARAR | FIRME | OLHAR — clinicamente incontestável, sem dramatizar}
@@ -65,7 +65,7 @@ Se a rede social regulava ansiedade ou oferecia pertencimento, o que poderá ocu
 {FIRME | SEM OPOR AS ÁREAS}
 Quando indicada, a medicação pode ser fundamental para reduzir sintomas, manejar riscos e criar condições para o cuidado.
 {A ENERGIA COMEÇA A CRESCER}
-Mas também precisamos ampliar o repertório: regulação emocional, tolerância ao desconforto, prevenção de recaída, formas de pedir ajuda, vínculos e atividades que voltem a produzir {DESACELERAR} prazer e sentido.
+Mas também precisamos ampliar o repertório: regulação emocional, tolerância ao desconforto, prevenção de recaída, formas de pedir ajuda, vínculos e atividades que voltem a produzir prazer e sentido.
 Porque dizer “ligue para um amigo quando estiver mal” não faz com que essa resposta tenha, de imediato, a mesma força de um comportamento reforçado durante anos.
 Novas respostas precisam ser praticadas e fortalecidas para estarem disponíveis justamente quando a pessoa mais precisa delas.
 {PAUSA 1s}
@@ -80,7 +80,7 @@ e o diálogo responsável entre eles tornará visível aquilo que, separadamente
 |Se vocês saírem daqui com uma ideia, eu gostaria que fosse esta:
 {!PAUSA 1s}
 |Diante de um comportamento repetitivo, difícil de interromper e associado a prejuízos, não observem apenas quanto a pessoa usa ou como fazê-la parar.
-|Procurem compreender o que acontece antes, o que esse comportamento oferece ou ajuda a afastar, quais prejuízos produz e o que precisará ser construído para que outra resposta se torne realmente possível.
+|Procurem compreender o que acontece antes, o que esse comportamento oferece ou afasta, quais prejuízos produz e o que precisará ser construído para que outra resposta se torne realmente possível.
 {!PAUSA 2s}
 {!DESACELERAR}
 |Porque o comportamento que vemos não conta sozinho a história inteira.
@@ -90,7 +90,7 @@ e o diálogo responsável entre eles tornará visível aquilo que, separadamente
 |**Porque o cuidado não termina quando o comportamento para.**
 {!PAUSA 1s}
 {!MAIS LENTO | VOZ DESCENDENTE}
-|**Ele se sustenta quando a vida se torna mais ampla, mais valiosa...** {MICROPAUSA} **e volta a oferecer outras respostas.**
+|**Ele se sustenta quando a vida se torna mais ampla, mais valiosa e volta a oferecer outras respostas.**
 {!SILÊNCIO REAL DE 3s | SUSTENTAR O OLHAR}
 {!SORRISO SOMENTE AGORA}
 |Obrigada.
