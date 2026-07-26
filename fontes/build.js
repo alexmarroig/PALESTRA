@@ -2,37 +2,35 @@ const fs = require('fs');
 const path = require('path');
 const {
   Document, Packer, Paragraph, TextRun, Header, Footer,
-  PageNumber, PageBreak, AlignmentType,
+  PageNumber, PageBreak, AlignmentType, PageOrientation,
 } = require('docx');
 
 const dir = __dirname;
-const MARK = '9C4221';   // direção de fala
-const QUOTE = '1F3864';  // relato de participante
-const CUT = '767171';    // trecho cortável
+const MARK = '9C4221';
+const QUOTE = '1F3864';
+const CUT = '808080';
 
-// ---------------------------------------------------------------------------
-// Convenções do arquivo-fonte
-//   linha 1        título do bloco
-//   {DIREÇÃO}      linha só de marcação        -> keepNext (cola na fala seguinte)
-//   {*DIREÇÃO}     marcação só no ENSAIO
-//   {X — explica}  a explicação cai na versão de PALCO
-//   >texto         relato literal de participante
-//   **texto**      negrito
-//   ===            quebra de página estratégica
-//   ~texto         trecho cortável (versão de 40 min)
-//   texto:         deixa curta -> keepNext (nunca se separa do que vem depois)
-// ---------------------------------------------------------------------------
+// mode: 'ensaio' | 'palco' | 'limpo'
+//   ensaio -> todas as direções, com explicações
+//   palco  -> só as marcadas com {!...}, sem a explicação após " — "
+//   limpo  -> nenhuma direção
+function markText(body, mode) {
+  const essential = body.startsWith('!');
+  if (essential) body = body.slice(1);
+  const ensaioOnly = body.startsWith('*');
+  if (ensaioOnly) body = body.slice(1);
+  if (mode === 'limpo') return null;
+  if (mode === 'palco' && (!essential || ensaioOnly)) return null;
+  if (mode === 'palco') body = body.split(' — ')[0];
+  return `{${body}}`;
+}
 
-const isCue = t => /:$/.test(t) && t.replace(/\*\*/g, '').length <= 60;
-
-function runs(text, base, stage) {
+function runs(text, base, mode) {
   const out = [];
   text.split(/(\{[^}]*\}|\*\*[^*]+\*\*)/).filter(s => s.length).forEach(seg => {
     if (seg.startsWith('{')) {
-      let body = seg.slice(1, -1);
-      if (body.startsWith('*')) { if (stage) return; body = body.slice(1); }
-      if (stage) body = body.split(' — ')[0];
-      out.push(new TextRun({ text: `{${body}}`, bold: true, color: MARK, size: 19, font: 'Calibri' }));
+      const m = markText(seg.slice(1, -1), mode);
+      if (m) out.push(new TextRun({ text: m, bold: true, color: MARK, size: 19, font: 'Calibri' }));
     } else if (seg.startsWith('**')) {
       out.push(new TextRun(Object.assign({}, base, { text: seg.slice(2, -2), bold: true, font: 'Calibri' })));
     } else {
@@ -42,92 +40,79 @@ function runs(text, base, stage) {
   return out;
 }
 
-function paragraphs(lines, { stage = false, showCuts = false } = {}) {
-  const paras = [];
+const isCue = t => /:$/.test(t.replace(/\{[^}]*\}/g, '').trim()) && t.replace(/\*\*|\{[^}]*\}/g, '').length <= 60;
+
+function paragraphs(lines, o) {
+  const { mode = 'ensaio', showCuts = false, dropCuts = false, size = 24, spacing = 140 } = o;
+  const out = [];
   for (let i = 1; i < lines.length; i++) {
     let t = lines[i].trim();
     if (!t) continue;
+    if (t === '===') { out.push(new Paragraph({ children: [new PageBreak()] })); continue; }
 
-    if (t === '===') {
-      paras.push(new Paragraph({ children: [new PageBreak()] }));
-      continue;
+    if (t.startsWith('%')) {            // ponte: só existe na versão cortada
+      if (!dropCuts) continue;
+      t = t.slice(1).trim();
     }
-
+    let glue = false;
+    if (t.startsWith('|')) { glue = true; t = t.slice(1).trim(); }
     const cuttable = t.startsWith('~');
-    if (cuttable) t = t.slice(1).trim();
+    if (cuttable) { if (dropCuts) continue; t = t.slice(1).trim(); }
 
-    // Marcação isolada: gruda no que vem depois, nunca quebra no meio.
     if (t.startsWith('{') && t.endsWith('}')) {
-      let body = t.slice(1, -1);
-      if (body.startsWith('*')) { if (stage) continue; body = body.slice(1); }
-      if (stage) body = body.split(' — ')[0];
-      paras.push(new Paragraph({
-        spacing: { before: 80, after: 100 },
-        keepNext: true, keepLines: true,
-        children: [new TextRun({ text: `{${body}}`, bold: true, color: MARK, size: 19, font: 'Calibri' })],
+      const m = markText(t.slice(1, -1), mode);
+      if (!m) continue;
+      void glue;
+      out.push(new Paragraph({
+        spacing: { before: 60, after: 80 }, keepNext: true, keepLines: true,
+        children: [new TextRun({ text: m, bold: true, color: MARK, size: 19, font: 'Calibri' })],
       }));
       continue;
     }
 
-    const base = { size: 24 };
-    if (cuttable && showCuts) base.color = CUT;
+    const isQuote = t.startsWith('>');
+    if (isQuote) t = t.slice(1).trim();
+    const base = { size, color: cuttable && showCuts ? CUT : (isQuote ? QUOTE : '000000') };
+    if (isQuote) base.italics = true;
 
-    if (t.startsWith('>')) {
-      paras.push(new Paragraph({
-        spacing: { before: 80, after: 160 },
-        indent: { left: 480 },
-        keepLines: true,               // a citação não se parte entre páginas
-        children: runs(t.slice(1).trim(),
-          Object.assign({ italics: true, color: cuttable && showCuts ? CUT : QUOTE }, { size: 24 }), stage),
-      }));
-      continue;
-    }
-
-    paras.push(new Paragraph({
-      spacing: { after: 160 },
-      keepLines: true,
-      keepNext: isCue(t),             // só deixas curtas prendem o parágrafo seguinte
-      children: runs(t, base, stage),
+    out.push(new Paragraph({
+      spacing: { after: spacing }, keepLines: true,
+      keepNext: glue || (!isQuote && isCue(t)),
+      indent: isQuote ? { left: 400 } : undefined,
+      children: runs(t, base, mode),
     }));
   }
-  return paras;
+  return out;
 }
 
-function build(srcFile, outFile, headerLabel, opts = {}) {
+function build(srcFile, outFile, label, o = {}) {
   const lines = fs.readFileSync(path.join(dir, srcFile), 'utf8').split('\n');
-  const title = (opts.title || lines[0]).trim();
-
   const children = [
     new Paragraph({
-      spacing: { after: 360 },
-      keepNext: true,
-      children: [new TextRun({ text: title, bold: true, size: 30, font: 'Calibri' })],
+      spacing: { after: o.landscape ? 200 : 340 }, keepNext: true,
+      children: [new TextRun({ text: (o.title || lines[0]).trim(), bold: true, size: o.landscape ? 24 : 30, font: 'Calibri' })],
     }),
-    ...paragraphs(lines, opts),
+    ...paragraphs(lines, o),
   ];
+
+  const props = { titlePage: true };
+  if (o.landscape) {
+    props.page = { size: { orientation: PageOrientation.LANDSCAPE }, margin: { top: 560, bottom: 560, left: 620, right: 620 } };
+    props.column = { count: 2, space: 400 };
+  }
 
   const doc = new Document({
     sections: [{
-      properties: { titlePage: true },
+      properties: props,
       headers: {
         first: new Header({ children: [new Paragraph('')] }),
-        default: new Header({
-          children: [new Paragraph({
-            alignment: AlignmentType.RIGHT,
-            children: [new TextRun({ text: headerLabel, color: '808080', size: 18, font: 'Calibri' })],
-          })],
-        }),
+        default: new Header({ children: [new Paragraph({ alignment: AlignmentType.RIGHT,
+          children: [new TextRun({ text: label, color: '808080', size: 18, font: 'Calibri' })] })] }),
       },
       footers: {
-        default: new Footer({
-          children: [new Paragraph({
-            alignment: AlignmentType.RIGHT,
-            children: [new TextRun({
-              children: [`${headerLabel} | página `, PageNumber.CURRENT, ' de ', PageNumber.TOTAL_PAGES],
-              color: '808080', size: 18, font: 'Calibri',
-            })],
-          })],
-        }),
+        default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.RIGHT,
+          children: [new TextRun({ children: [`${label} | página `, PageNumber.CURRENT, ' de ', PageNumber.TOTAL_PAGES],
+            color: '808080', size: 18, font: 'Calibri' })] })] }),
       },
       children,
     }],
@@ -136,13 +121,3 @@ function build(srcFile, outFile, headerLabel, opts = {}) {
 }
 
 module.exports = { build };
-
-if (require.main === module) {
-  const jobs = [
-    ['bloco3.txt', 'BLOCO_3__PARTITURA_ENSAIO.docx', 'Bloco 3 — Achados da pesquisa', {}],
-    ['bloco3.txt', 'BLOCO_3__PARTITURA_PALCO.docx', 'Bloco 3 — Achados da pesquisa', { stage: true }],
-    ['bloco4.txt', 'BLOCO_4__PARTITURA_ENSAIO.docx', 'Bloco 4 — Conclusão', {}],
-    ['bloco4.txt', 'BLOCO_4__PARTITURA_PALCO.docx', 'Bloco 4 — Conclusão', { stage: true }],
-  ];
-  Promise.all(jobs.map(j => build(...j))).then(() => console.log('ok'));
-}

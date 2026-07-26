@@ -1,16 +1,16 @@
 BLOCO 3 — ACHADOS DA PESQUISA
 Enquanto eu desenvolvia essa pesquisa, eu também fazia estágio no PROAD — o Programa de Orientação e Atendimento a Dependentes da Unifesp, no CAISM — e atendia pessoas com transtorno por uso de substâncias.
 E um paciente me disse, logo na primeira sessão:
-{OLHAR | DESACELERAR}
+{!OLHAR | DESACELERAR}
 >“Instagram é igual droga pra mim.”
-{PAUSA 1s}
+{!PAUSA 1s}
 Eu nunca esqueci essa frase.
 Ela não demonstrava equivalência entre os dois fenômenos.
 Mas chamava atenção para experiências que eu escutava nos dois contextos: perda de controle, dificuldade de interromper e continuidade apesar dos prejuízos.
 {PAUSA 1s}
 E a questão não parecia ser apenas o tempo de tela. Parecia envolver a qualidade da relação que a pessoa construía com aquele comportamento: o que ele produzia, o que ajudava a aliviar ou evitar, e por que era tão difícil interrompê-lo.
 Foi desse incômodo que surgiu a minha pesquisa.
-{FIRME | RITMO + — domínio metodológico, não pedido de desculpas}
+{!FIRME | RITMO + — domínio metodológico, não pedido de desculpas}
 Eu realizei entrevistas semiestruturadas com quatro pessoas, entre 25 e 30 anos, que descreviam o próprio uso como excessivo, difícil de controlar e associado a algum prejuízo.
 A pesquisa foi qualitativa e exploratória, desenvolvida a partir da análise do comportamento.
 E é importante delimitar o que isso significa. Eu trabalhei com os relatos que os participantes produziram sobre o próprio uso — não com observação direta. Por isso, os resultados não permitem estabelecer prevalência, causalidade ou diagnóstico, e não podem ser generalizados.
@@ -20,7 +20,7 @@ A pesquisa permitiu identificar padrões gerais — mas não construir uma formu
 Feita essa delimitação, eu organizei os achados em três eixos: **antecedentes**, **consequências** e **respostas de autocontrole**.
 {PAUSA 1s}
 Vamos começar pelos **antecedentes**.
-{ÊNFASE SÓ NOS NÚMEROS; DEPOIS VOLTAR AO TOM CONVERSACIONAL}
+{!ÊNFASE SÓ NOS NÚMEROS; DEPOIS VOLTAR AO TOM CONVERSACIONAL}
 Nos **quatro** relatos, o uso apareceu antes de dormir e nos intervalos. Também apareceram nos **quatro** relatos as demandas sociais e a presença de outras pessoas mexendo no celular. Ao acordar, apareceu em **três** relatos; no banheiro, em **dois**.
 E apareciam ainda as notificações e o simples fato de estar com o aparelho já aberto na mão.
 Uma participante disse:
@@ -30,8 +30,9 @@ Determinados contextos pareciam aumentar tanto a probabilidade do comportamento 
 {PAUSA 1s}
 Vamos para o segundo eixo: as **consequências**.
 ~E aqui apareceu uma variedade grande de funções. A rede podia oferecer informação, socialização, visibilidade, inspiração, retorno profissional e sensação de pertencimento. E podia também reduzir ansiedade, inquietação, tédio, medo de exclusão ou o contato com uma tarefa difícil.
-{FIRME}
-Esse é um ponto central dos achados: o mesmo comportamento podia oferecer alguma coisa e, ao mesmo tempo, afastar outra. Às vezes, as duas funções apareciam juntas.
+{!FIRME}
+~Esse é um ponto central dos achados: o mesmo comportamento podia oferecer alguma coisa e, ao mesmo tempo, afastar outra. Às vezes, as duas funções apareciam juntas.
+%E aqui apareceu um ponto central dos achados: o mesmo comportamento podia oferecer alguma coisa e, ao mesmo tempo, afastar outra. Às vezes, as duas funções apareciam juntas.
 {PAUSA 1s}
 ~Eu quero abrir um parêntese aqui e trazer uma fala de outra pesquisa que eu realizei, com uma criadora de conteúdo no YouTube.
 ~Ela dizia:
@@ -53,17 +54,18 @@ Aqui, abrir o aplicativo não parecia movido por prazer ou entretenimento. Parec
 Mas o próprio uso também produzia consequências aversivas. Nos **quatro** relatos apareceram atrasos e perda da noção do tempo. Também surgiram interferências no trabalho, nos estudos e em atividades ou relações valorizadas.
 E é diante disso que chegamos ao terceiro eixo: as **respostas de autocontrole**.
 Todos os **quatro** relataram tentativas de fazer acordos consigo mesmos; **três** desativavam notificações; e **um** descreveu o ciclo de desinstalar e reinstalar os aplicativos.
-{DESACELERAR | TOM DE DESCOBERTA — não anunciar o significado antes}
+{!DESACELERAR | TOM DE DESCOBERTA — não anunciar o significado antes}
 E aqui apareceu um achado que eu considero um dos mais interessantes.
 Para um dos participantes, desativar as notificações não reduziu as verificações. Pelo contrário: sem a notificação, ele não sabia o que estava acontecendo — e isso aumentava a necessidade de entrar no aplicativo para conferir.
-{PAUSA 1s}
+{!PAUSA 1s}
 Ou seja: uma mesma estratégia de autocontrole pode produzir efeitos diferentes conforme a pessoa, a função daquele uso e o contexto.
 {PAUSA 1s}
+{!OLHAR}
 E a fala mais forte desse eixo foi esta:
 >“Eu tava indo trabalhar assim puto porque eu tava atrasado. Eu falei: mano, eu vou excluir essa porra. Aí eu chegava no trabalho, eventualmente tinha uma brecha, aí eu falava: não, vou instalar de novo. É foda, é foda.”
-{RITMO +}
+{!RITMO +}
 Reconhecimento do prejuízo. Desejo de mudar. Tentativa concreta de controle. E retorno ao comportamento.
-{DESACELERAR | VOZ DESCENDENTE}
+{!DESACELERAR | VOZ DESCENDENTE}
 Querer interromper não significava, necessariamente, conseguir sustentar a interrupção.
 {PAUSA 1s}
 E o que ajuda a interpretar essa persistência?
@@ -72,20 +74,19 @@ Uma postagem pode receber muita resposta. A próxima, quase nenhuma. Depois, out
 É nesse aspecto específico — a imprevisibilidade do retorno, e não uma equivalência clínica ou diagnóstica — que existe uma aproximação com a lógica de uma máquina caça-níquel.
 ~E comportamentos mantidos por consequências imprevisíveis podem se tornar bastante persistentes. Ainda mais quando o acesso está sempre a um toque de distância.
 {PAUSA 1s}
-Por fim, chamou atenção que os participantes utilizaram espontaneamente palavras como “vício” e “dependência”.
+Por fim, chamou atenção o fato de os próprios participantes utilizarem palavras como “vício” e “dependência”.
 Essa era a linguagem que eles usavam para descrever a própria experiência — não uma conclusão diagnóstica da pesquisa.
-{PARAR | OLHAR | DESACELERAR}
+{!PARAR | OLHAR | DESACELERAR}
 Uma das participantes resumiu essa experiência assim. É a fala que eu escolhi como epígrafe do trabalho:
 >“Eu acho que é muito esse excesso de informações, excesso de conteúdo, sabe? Que te faz querer mais e mais e mais e mais, né? É um vício, é algo que em excesso faz mal, a gente sabe, mas muitas vezes a gente prefere ignorar porque não tá matando, pelo menos não por enquanto.”
-{SILÊNCIO 2s}
+{!SILÊNCIO 2s}
 A busca contínua por mais. A percepção do prejuízo. E a permanência do comportamento apesar dessa percepção.
-===
 {DESACELERAR}
-Naquele grupo, o uso não era descrito apenas como frequente. Ele aparecia relacionado a antecedentes específicos, consequências reforçadoras, prejuízos, tentativas de regulação e dificuldade de sustentar o autocontrole.
-{FIRME}
-O tempo de tela mostra **QUANTO** a pessoa usa. Os antecedentes e as consequências ajudam a compreender **POR QUE** aquele uso se repete naquela história.
-{PAUSA 1s | OLHAR}
-Então, a pesquisa não respondeu se essas pessoas tinham um transtorno.
-Ela ajudou a formular outra pergunta:
-**Quando existe sofrimento ou prejuízo associado a um comportamento que não corresponde a uma categoria diagnóstica específica, o que a clínica faz com essa informação?**
-{VOZ DESCENDENTE | SILÊNCIO 2s — não responder com pressa}
+|Naquele grupo, o uso não era descrito apenas como frequente. Ele aparecia relacionado a antecedentes específicos, consequências reforçadoras, prejuízos, tentativas de regulação e dificuldade de sustentar o autocontrole.
+{!FIRME}
+|O tempo de tela mostra **QUANTO** a pessoa usa. Os antecedentes e as consequências ajudam a compreender **POR QUE** aquele uso se repete naquela história.
+{!PAUSA 1s | OLHAR}
+|Então, a pesquisa não respondeu se essas pessoas tinham um transtorno.
+|Ela ajudou a formular outra pergunta:
+|**Quando existe sofrimento ou prejuízo associado a um comportamento que não corresponde a uma categoria diagnóstica específica, o que a clínica faz com essa informação?**
+{!VOZ DESCENDENTE | SILÊNCIO 2s — não responder com pressa}
